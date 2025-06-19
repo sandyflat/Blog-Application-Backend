@@ -4,8 +4,8 @@ import com.sandyflat.BlogApplication.entity.Categories;
 import com.sandyflat.BlogApplication.entity.Post;
 import com.sandyflat.BlogApplication.entity.User;
 import com.sandyflat.BlogApplication.exception.ResourceNotFoundException;
-import com.sandyflat.BlogApplication.payload.PostDTO;
-import com.sandyflat.BlogApplication.payload.PostResponse;
+import com.sandyflat.BlogApplication.dto.PostDTO;
+import com.sandyflat.BlogApplication.dto.PostResponse;
 import com.sandyflat.BlogApplication.repository.CategoryRepository;
 import com.sandyflat.BlogApplication.repository.PostRepository;
 import com.sandyflat.BlogApplication.repository.UserRepository;
@@ -20,7 +20,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor

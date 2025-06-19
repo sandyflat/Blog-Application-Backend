@@ -1,4 +1,4 @@
-package com.sandyflat.BlogApplication.config;
+package com.sandyflat.BlogApplication.util;
 
 public class AppConstant {
     public static final String PAGE_NUMBER = "0";

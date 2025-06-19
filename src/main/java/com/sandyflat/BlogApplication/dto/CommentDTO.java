@@ -1,4 +1,4 @@
-package com.sandyflat.BlogApplication.payload;
+package com.sandyflat.BlogApplication.dto;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -1,9 +1,9 @@
 package com.sandyflat.BlogApplication.controller;
 
-import com.sandyflat.BlogApplication.config.AppConstant;
-import com.sandyflat.BlogApplication.payload.ApiResponse;
-import com.sandyflat.BlogApplication.payload.PostDTO;
-import com.sandyflat.BlogApplication.payload.PostResponse;
+import com.sandyflat.BlogApplication.util.AppConstant;
+import com.sandyflat.BlogApplication.dto.ApiResponse;
+import com.sandyflat.BlogApplication.dto.PostDTO;
+import com.sandyflat.BlogApplication.dto.PostResponse;
 import com.sandyflat.BlogApplication.serviceimpl.PostServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;

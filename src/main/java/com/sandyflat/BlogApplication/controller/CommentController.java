@@ -1,7 +1,7 @@
 package com.sandyflat.BlogApplication.controller;
 
-import com.sandyflat.BlogApplication.payload.ApiResponse;
-import com.sandyflat.BlogApplication.payload.CommentDTO;
+import com.sandyflat.BlogApplication.dto.ApiResponse;
+import com.sandyflat.BlogApplication.dto.CommentDTO;
 import com.sandyflat.BlogApplication.serviceimpl.CommentServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;

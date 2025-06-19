@@ -2,7 +2,7 @@ package com.sandyflat.BlogApplication.serviceimpl;
 
 import com.sandyflat.BlogApplication.entity.Categories;
 import com.sandyflat.BlogApplication.exception.ResourceNotFoundException;
-import com.sandyflat.BlogApplication.payload.CategoryDTO;
+import com.sandyflat.BlogApplication.dto.CategoryDTO;
 import com.sandyflat.BlogApplication.repository.CategoryRepository;
 import com.sandyflat.BlogApplication.service.CategoryService;
 import lombok.AllArgsConstructor;

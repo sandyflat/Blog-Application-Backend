@@ -1,4 +1,4 @@
-package com.sandyflat.BlogApplication.payload;
+package com.sandyflat.BlogApplication.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

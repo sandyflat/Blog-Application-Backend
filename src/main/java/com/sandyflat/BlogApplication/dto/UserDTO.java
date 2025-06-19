@@ -1,11 +1,15 @@
-package com.sandyflat.BlogApplication.payload;
+package com.sandyflat.BlogApplication.dto;
 
+import com.sandyflat.BlogApplication.entity.Role;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -29,4 +33,9 @@ public class UserDTO {
 
     @NotEmpty
     private String gender;
+
+    @NotNull
+    private Set<Long> roleId;
+
+    private Set<Role> roles;
 }

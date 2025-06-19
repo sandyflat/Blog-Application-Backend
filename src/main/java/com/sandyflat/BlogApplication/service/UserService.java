@@ -1,6 +1,6 @@
 package com.sandyflat.BlogApplication.service;
 
-import com.sandyflat.BlogApplication.payload.UserDTO;
+import com.sandyflat.BlogApplication.dto.UserDTO;
 
 import java.util.List;
 

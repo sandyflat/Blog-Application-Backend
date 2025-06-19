@@ -1,8 +1,7 @@
 package com.sandyflat.BlogApplication.service;
 
-import com.sandyflat.BlogApplication.entity.Post;
-import com.sandyflat.BlogApplication.payload.PostDTO;
-import com.sandyflat.BlogApplication.payload.PostResponse;
+import com.sandyflat.BlogApplication.dto.PostDTO;
+import com.sandyflat.BlogApplication.dto.PostResponse;
 
 import java.util.List;
 

@@ -3,7 +3,7 @@ package com.sandyflat.BlogApplication.serviceimpl;
 import com.sandyflat.BlogApplication.entity.Comment;
 import com.sandyflat.BlogApplication.entity.Post;
 import com.sandyflat.BlogApplication.exception.ResourceNotFoundException;
-import com.sandyflat.BlogApplication.payload.CommentDTO;
+import com.sandyflat.BlogApplication.dto.CommentDTO;
 import com.sandyflat.BlogApplication.repository.CommentRepository;
 import com.sandyflat.BlogApplication.repository.PostRepository;
 import com.sandyflat.BlogApplication.service.CommentService;

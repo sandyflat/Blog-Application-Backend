@@ -1,6 +1,6 @@
 package com.sandyflat.BlogApplication.service;
 
-import com.sandyflat.BlogApplication.payload.CategoryDTO;
+import com.sandyflat.BlogApplication.dto.CategoryDTO;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
 package com.sandyflat.BlogApplication.controller;
 
-import com.sandyflat.BlogApplication.payload.ApiResponse;
-import com.sandyflat.BlogApplication.payload.UserDTO;
+import com.sandyflat.BlogApplication.dto.ApiResponse;
+import com.sandyflat.BlogApplication.dto.UserDTO;
 import com.sandyflat.BlogApplication.serviceimpl.UserServiceImpl;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;

@@ -1,15 +1,21 @@
 package com.sandyflat.BlogApplication.serviceimpl;
 
+import com.sandyflat.BlogApplication.entity.Role;
 import com.sandyflat.BlogApplication.entity.User;
 import com.sandyflat.BlogApplication.exception.ResourceNotFoundException;
-import com.sandyflat.BlogApplication.payload.UserDTO;
+import com.sandyflat.BlogApplication.dto.UserDTO;
+import com.sandyflat.BlogApplication.repository.RoleRepository;
 import com.sandyflat.BlogApplication.repository.UserRepository;
 import com.sandyflat.BlogApplication.service.UserService;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -17,12 +23,33 @@ public class UserServiceImpl implements UserService {
 
     private final ModelMapper modelMapper;
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
+    private final RoleRepository roleRepository;
 
     @Override
+    @Transactional
     public UserDTO createUser(UserDTO userDTO) {
-        User map = this.modelMapper.map(userDTO, User.class);
-        User addedUser = this.userRepository.save(map);
-        return this.modelMapper.map(addedUser, UserDTO.class);
+        if(userRepository.existsByName(userDTO.getName())){
+            throw new IllegalArgumentException("Username already exists..");
+        }
+
+        // Fetch roles from database
+        Set<Role> roles = userDTO.getRoleId().stream()
+                .map(roleId -> roleRepository.findById(roleId)
+                        .orElseThrow(() -> new ResourceNotFoundException("Role", "Roll Id", roleId)))
+                .collect(Collectors.toSet());
+
+        User user = User.builder()
+                .name(userDTO.getName())
+                .email(userDTO.getEmail())
+                .password(passwordEncoder.encode(userDTO.getPassword()))
+                .roles(roles)
+                .age(userDTO.getAge())
+                .gender(userDTO.getGender())
+                .build();
+
+       User addedUser = this.userRepository.save(user);
+       return modelMapper.map(addedUser, UserDTO.class);
     }
 
     @Override

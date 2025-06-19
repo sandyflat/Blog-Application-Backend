@@ -1,6 +1,6 @@
 package com.sandyflat.BlogApplication.exception;
 
-import com.sandyflat.BlogApplication.payload.ApiResponse;
+import com.sandyflat.BlogApplication.dto.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
