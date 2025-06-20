@@ -7,6 +7,7 @@ import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,14 +19,8 @@ public class UserController {
 
     private final UserServiceImpl userService;
 
-    @PostMapping
-    public ResponseEntity<UserDTO> createUser(@Valid @RequestBody UserDTO userDto){
-        return ResponseEntity
-                .status(HttpStatus.CREATED)
-                .body(userService.createUser(userDto));
-    }
-
     @PutMapping("/{userId}")
+    @PreAuthorize("hasAnyRole('ADMIN','USER')")
     public ResponseEntity<UserDTO> updateUser(@Valid @RequestBody UserDTO userDTO, @PathVariable Long userId){
         return ResponseEntity
                 .status(HttpStatus.OK)
@@ -33,16 +28,19 @@ public class UserController {
     }
 
     @GetMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<List<UserDTO>> getAllUsers(){
         return ResponseEntity.ok(userService.getAllUsers());
     }
 
     @GetMapping("/{userId}")
+    @PreAuthorize("hasAnyRole('ADMIN','USER')")
     public ResponseEntity<UserDTO> getUserById(@PathVariable Long userId){
         return ResponseEntity.ok(userService.getUserById(userId));
     }
 
     @DeleteMapping("/{userId}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<ApiResponse> deleteUser(@PathVariable Long userId){
         userService.deleteUser(userId);
         return new ResponseEntity<>(new ApiResponse("user deleted successfully", true), HttpStatus.OK);
